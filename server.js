@@ -19,20 +19,12 @@ console.log("Views directory:", path.join(__dirname, "views"));
 // Routes
 app.use("/api/pdf", pdfRoutes);
 
-// Home route - now renders UserForm
+// Home route
 app.get("/", (req, res) => {
-  try {
-    res.render("UserForm");
-  } catch (error) {
-    console.error("Error rendering UserForm:", error);
-    res.status(500).json({
-      error: "Something went wrong!",
-      message: error.message,
-    });
-  }
+  res.render("Home");
 });
 
-// Form route - keeping this for backward compatibility
+// Form route
 app.get("/form", (req, res) => {
   try {
     res.render("UserForm");
