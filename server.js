@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Routes
-app.use("/api/pdf", pdfRoutes);
+app.use("/api/pdf", pdfRoutes); 
 
 // Home route
 app.get("/", (req, res) => {
