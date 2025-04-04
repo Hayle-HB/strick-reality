@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 // Form route
 app.get("/form", (req, res) => {
-  res.render("UserForm");
+  res.render("Form");
 });
 
 // Error handling middleware
