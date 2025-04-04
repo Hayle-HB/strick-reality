@@ -80,12 +80,6 @@ const generateInvoicePDF = async (data, invoiceNumber) => {
         "--disable-accelerated-2d-canvas",
         "--disable-gpu",
       ],
-      executablePath:
-        process.platform === "win32"
-          ? "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-          : process.platform === "linux"
-          ? "/usr/bin/google-chrome"
-          : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     });
 
     const page = await browser.newPage();
