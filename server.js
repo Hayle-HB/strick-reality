@@ -1,19 +1,43 @@
 const express = require("express");
+const cors = require("cors");
+const pdfRoutes = require("./routes/pdfRoutes");
+const path = require("path");
+
 const app = express();
-const port = 3000;
 
-// Set EJS as the view engine
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Set view engine
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
-// Serve static files from public directory
-app.use(express.static("public"));
+// Routes
+app.use("/api/pdf", pdfRoutes);
 
 // Home route
 app.get("/", (req, res) => {
   res.render("Home");
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+// Form route
+app.get("/form", (req, res) => {
+  res.render("UserForm");
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    error: "Something went wrong!",
+    message: err.message,
+  });
+});
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

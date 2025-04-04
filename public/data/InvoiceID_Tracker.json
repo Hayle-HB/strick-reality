@@ -1,0 +1,30 @@
+{
+  "last_invoice_number": 20250005,
+  "invoices": [
+    {
+      "number": 20250001,
+      "date": "2025-04-04",
+      "client": "this"
+    },
+    {
+      "number": 20250002,
+      "date": "2025-04-04",
+      "client": "this"
+    },
+    {
+      "number": 20250003,
+      "date": "2025-04-04",
+      "client": "32"
+    },
+    {
+      "number": 20250004,
+      "date": "2025-04-04",
+      "client": "32"
+    },
+    {
+      "number": 20250005,
+      "date": "2025-04-04",
+      "client": "this"
+    }
+  ]
+}
