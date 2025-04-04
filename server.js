@@ -12,7 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Set view engine
 app.set("view engine", "ejs");
+// Use absolute path for views directory
 app.set("views", path.join(__dirname, "views"));
+console.log("Views directory:", path.join(__dirname, "views"));
 
 // Routes
 app.use("/api/pdf", pdfRoutes);
@@ -24,7 +26,15 @@ app.get("/", (req, res) => {
 
 // Form route
 app.get("/form", (req, res) => {
-  res.render("UserForm");
+  try {
+    res.render("UserForm");
+  } catch (error) {
+    console.error("Error rendering UserForm:", error);
+    res.status(500).json({
+      error: "Something went wrong!",
+      message: error.message,
+    });
+  }
 });
 
 // Error handling middleware
