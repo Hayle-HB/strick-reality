@@ -73,7 +73,19 @@ const generateInvoicePDF = async (data, invoiceNumber) => {
   try {
     const browser = await puppeteer.launch({
       headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-accelerated-2d-canvas",
+        "--disable-gpu",
+      ],
+      executablePath:
+        process.platform === "win32"
+          ? "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+          : process.platform === "linux"
+          ? "/usr/bin/google-chrome"
+          : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     });
 
     const page = await browser.newPage();
