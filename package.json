@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir -p .cache/puppeteer && npx puppeteer install --chrome --path ./.cache/puppeteer",
+    "build": "if [ \"$CI\" = \"true\" ]; then mkdir -p .cache/puppeteer && npx puppeteer install --chrome --path ./.cache/puppeteer; else npx puppeteer install --chrome; fi",
     "start": "node index.js",
-    "postinstall": "mkdir -p .cache/puppeteer && npx puppeteer install --chrome --path ./.cache/puppeteer"
+    "postinstall": "if [ \"$CI\" = \"true\" ]; then mkdir -p .cache/puppeteer && npx puppeteer install --chrome --path ./.cache/puppeteer; else npx puppeteer install --chrome; fi"
   },
   "keywords": [],
   "author": "",

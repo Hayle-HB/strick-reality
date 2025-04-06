@@ -81,10 +81,13 @@ const generateInvoicePDF = async (data, invoiceNumber) => {
         "--disable-gpu",
         "--single-process",
       ],
-      executablePath: path.join(
-        __dirname,
-        "../.cache/puppeteer/chrome/linux-135.0.7049.42/chrome-linux64/chrome"
-      ),
+      executablePath:
+        process.platform === "win32"
+          ? "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+          : path.join(
+              __dirname,
+              "../.cache/puppeteer/chrome/linux-135.0.7049.42/chrome-linux64/chrome"
+            ),
     });
 
     const page = await browser.newPage();
