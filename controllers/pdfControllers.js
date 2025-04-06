@@ -81,8 +81,10 @@ const generateInvoicePDF = async (data, invoiceNumber) => {
         "--disable-gpu",
         "--single-process",
       ],
-      executablePath:
-        process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
+      executablePath: path.join(
+        __dirname,
+        "../.cache/puppeteer/chrome/linux-135.0.7049.42/chrome-linux64/chrome"
+      ),
     });
 
     const page = await browser.newPage();
