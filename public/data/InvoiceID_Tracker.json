@@ -1,5 +1,5 @@
 {
-  "last_invoice_number": 20250012,
+  "last_invoice_number": 20250013,
   "invoices": [
     {
       "number": 20250001,
@@ -58,6 +58,11 @@
     },
     {
       "number": 20250012,
+      "date": "2025-04-06",
+      "client": "Haylemeskel Haylemariam"
+    },
+    {
+      "number": 20250013,
       "date": "2025-04-06",
       "client": "Haylemeskel Haylemariam"
     }
