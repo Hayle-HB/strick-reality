@@ -79,8 +79,10 @@ const generateInvoicePDF = async (data, invoiceNumber) => {
         "--disable-dev-shm-usage",
         "--disable-accelerated-2d-canvas",
         "--disable-gpu",
+        "--single-process",
       ],
-      ignoreDefaultArgs: ["--disable-extensions"],
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
     });
 
     const page = await browser.newPage();
